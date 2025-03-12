@@ -7,6 +7,8 @@ app.use(express.json());
 app.post('/pay', (req, res) => {
     const { amount, currency, description, callback_url } = req.body;
 
+
+
     // Simula una respuesta inicial exitosa
     res.status(200).send({ transaction_id: 'trx_' + Math.floor(Math.random() * 100000) });
 

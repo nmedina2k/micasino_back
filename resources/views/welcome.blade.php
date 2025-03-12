@@ -17,6 +17,11 @@
 
 <body class="font-sans antialiased">
     <div class="container">
+        <?php if (!empty($message)) { ?>
+            <div class="alert">
+                <?php echo $message; ?>
+            </div>
+        <?php } ?>
         <div class="row justify-content-center">
             <form action="/deposit" method="post">
                 @csrf
@@ -46,6 +51,18 @@
         </div>
     </div>
     <style>
+        .alert {
+            width: 100%;
+            align-items: center;
+            background-color: #ced4da;
+            border: solid 1px #666666;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 30px;
+            padding: 15px;
+        }
+
         .container {
             width: 100%;
             font-family: sans-serif;
@@ -113,3 +130,11 @@
     </style>
 
 </html>
+<script>
+    <?php if (!empty($message)) { ?>
+        setTimeout(() => {
+            document.querySelector('.alert').remove();
+        }, 5000);
+
+    <?php } ?>
+</script>
